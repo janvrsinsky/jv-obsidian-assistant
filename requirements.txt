@@ -1,0 +1,6 @@
+# Celestia MCP filesystem server.
+#
+# Only one runtime dependency: the MCP SDK, which ships FastMCP. The routing
+# layer and the test suite (test_flow.py) use the Python standard library only,
+# so `python test_flow.py` runs with nothing installed.
+mcp>=1.2.0
