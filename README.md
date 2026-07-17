@@ -4,9 +4,12 @@
 
 A persona-driven AI assistant over an Obsidian knowledge vault, wired through a typed MCP filesystem core.
 
-![tier](https://img.shields.io/badge/tier-demo-6f42c1)
+**[▶ Watch the demos](#demos)** · three short clips, one capability each, recorded live against the demo vault.
+
+![tier](https://img.shields.io/badge/tier-production%20system-2ea44f)
 ![platform](https://img.shields.io/badge/platform-in%20daily%20production-2ea44f)
 ![interface](https://img.shields.io/badge/interface-MCP%20filesystem-6e40c9)
+![tools](https://img.shields.io/badge/typed%20MCP%20tools-5-6e40c9)
 ![model](https://img.shields.io/badge/Anthropic-Claude%20API-d97757)
 ![obsidian](https://img.shields.io/badge/vault-Obsidian%20Markdown-7c3aed)
 ![persona](https://img.shields.io/badge/persona-engineered-informational)
@@ -90,7 +93,7 @@ This system's guarantee is not a retrieval score, and it would be dishonest to d
 - Writes are explicit and reversible: appended, never overwritten, and reported back file-by-file, so there is always a clear record of what the assistant changed.
 - Ownership routing means a written fact can be found where it belongs, which is what makes the state honest over time.
 
-Where correctness does reduce to a measurable retrieval problem, the rigor lives in the sibling that can carry it: the podcast-archive assistant ships a hand-labeled gold set with recall@k and MRR numbers across keyword, dense, and hybrid retrieval. Celestia's job is different, so it makes a different, more modest claim.
+Where correctness does reduce to a measurable retrieval problem, the rigor lives in the sibling that can carry it: the podcast-archive assistant ships a hand-labeled gold set with recall@k and MRR numbers across keyword, dense, and hybrid retrieval. Celestia's job is different: its guarantee is grounded, auditable state that reflects what is actually on disk, not a retrieval score.
 
 ## How it's built
 
@@ -98,7 +101,7 @@ The architecture, the tool boundary, the routing rules, and the persona spec are
 
 ## Status and contact
 
-**Tier: Demo.** A recorded, working demo of a pattern that runs in production underneath. The platform it sits on is [jv-cortex-platform](https://github.com/janvrsinsky/jv-cortex-platform).
+**Tier: In daily production.** The system runs in my daily production over my own vault; this public repo is a sanitized cut of it, recorded against a throwaway demo vault. The platform it sits on is [jv-cortex-platform](https://github.com/janvrsinsky/jv-cortex-platform).
 
 - Portfolio: [github.com/janvrsinsky](https://github.com/janvrsinsky)
 - LinkedIn: [linkedin.com/in/janvrsinsky](https://linkedin.com/in/janvrsinsky)
