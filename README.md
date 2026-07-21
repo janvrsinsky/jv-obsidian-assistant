@@ -19,7 +19,7 @@ A persona-driven AI assistant over an Obsidian knowledge vault, wired through a 
 
 ## What it is
 
-Celestia is an assistant that reads, searches, and writes a Markdown knowledge vault as its working memory. Ask it to walk you into your day, prep you for a meeting, or file an update, and it opens the relevant notes first, reasons over what it found, and only then answers. When it writes, it routes the change to the note that owns that piece of truth, appends rather than overwrites, and tells you exactly what it touched.
+Celestia is an assistant that reads, searches, and writes a Markdown knowledge vault as its working memory. Ask it to brief you on your day, prep you for a meeting, or file an update, and it opens the relevant notes first, reasons over what it found, and only then answers. When it writes, it routes the change to the note that owns that piece of truth, appends rather than overwrites, and tells you exactly what it touched.
 
 The durable engineering here is the vault, the persona, and the tool layer between them. The chat window is an off-the-shelf open-source front end that exists to make the demo look like a product; it is deliberately replaceable and lives outside this repo. Underneath Celestia sits [Cortex](https://github.com/janvrsinsky/jv-cortex-platform), the self-hosted knowledge platform this pattern was built for.
 
@@ -51,7 +51,7 @@ https://github.com/user-attachments/assets/630a1abe-99a8-42a3-abe5-52d687f4f2da
 
 The system is a small set of deliberate design decisions, not a framework.
 
-- **The vault is the product; the chat UI is not.** In the recorded demo the face is an off-the-shelf open-source chat front end (LibreChat), which is external and not part of this repo. It is disposable by design: swap it for any MCP-speaking client or a custom web front end and nothing underneath changes, because the assistant's real interface is the tool layer, not the window.
+- **The vault is the product; the chat UI is not.** In the recorded demo the chat UI is an off-the-shelf open-source front end (LibreChat), which is external and not part of this repo. It is disposable by design: swap it for any MCP-speaking client or a custom web front end and nothing underneath changes, because the assistant's real interface is the tool layer, not the window.
 - **The agent gets typed tools, not raw access.** A Model Context Protocol filesystem server exposes a narrow set of operations over the vault: `read_file`, `write_file`, `list_directory`, `search_files`, `directory_tree`. Every read and every write goes through that boundary, which keeps what the agent does observable and constrained. This is retrieval over a live Markdown filesystem, not a vector database.
 - **Note-ownership routing.** Each piece of truth has an owning note: a business update belongs to its project card, an ongoing responsibility to its area note, a raw capture to the inbox. The assistant decides ownership before it writes, so state lands where it can be found again instead of in a scratchpad.
 - **Append, do not overwrite.** Reads surface; writes append to a log section rather than replacing prior content. History is preserved and every change is reconstructable.
@@ -60,7 +60,7 @@ The system is a small set of deliberate design decisions, not a framework.
 
 ```mermaid
 flowchart TB
-    U["User"] --> FACE["Chat face<br/>LibreChat, external (replaceable)"]
+    U["User"] --> FACE["Chat front end<br/>LibreChat, external (replaceable)"]
     FACE --> AG["Assistant persona<br/>engineered system prompt"]
     AG --> R{"Read or write?"}
     R -->|"surface: read / search / list"| MCP["MCP filesystem server<br/>typed tools"]
@@ -69,7 +69,7 @@ flowchart TB
     V -. "same pattern, production instance" .- CX["Cortex platform"]
 ```
 
-Celestia is one instance of a pattern reused across several systems: a persona, plus a typed MCP tool layer, plus a routing or policy boundary written in code, on a disposable chat face. Its siblings put the same shape over accounting data, a podcast archive, and a live trading fleet. See the [portfolio index](https://github.com/janvrsinsky) for the others.
+Celestia is one instance of a pattern reused across several systems: a persona, plus a typed MCP tool layer, plus a routing or policy boundary written in code, on a disposable chat front end. Its siblings put the same shape over accounting data, a podcast archive, and a live trading fleet. See the [portfolio index](https://github.com/janvrsinsky) for the others.
 
 ## Stack
 
@@ -83,7 +83,7 @@ In this repo:
 External (not included here):
 
 - **Anthropic Claude API** as the model behind the assistant.
-- **An off-the-shelf chat front end** (LibreChat) as the disposable product face used to record the demo. Any MCP-speaking client works; the face is not what this repo ships.
+- **An off-the-shelf chat front end** (LibreChat) as the disposable product surface used to record the demo. Any MCP-speaking client works; the face is not what this repo ships.
 
 ## Correctness: grounded and auditable
 
