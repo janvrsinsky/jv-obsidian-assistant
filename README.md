@@ -6,6 +6,8 @@ A persona-driven AI assistant over an Obsidian knowledge vault, wired through a 
 
 **[▶ Watch the demos](#demos)** · three short clips, one capability each, recorded live against the demo vault.
 
+[![self-test](https://github.com/janvrsinsky/jv-obsidian-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/janvrsinsky/jv-obsidian-assistant/actions/workflows/ci.yml)
+
 ![tier](https://img.shields.io/badge/tier-production%20system-2ea44f)
 ![platform](https://img.shields.io/badge/platform-in%20daily%20production-2ea44f)
 ![interface](https://img.shields.io/badge/interface-MCP%20filesystem-6e40c9)
@@ -78,7 +80,7 @@ In this repo:
 - **MCP filesystem server** (`mcp_server.py`) over an Obsidian Markdown vault, exposing the five typed read / write / list / search / tree tools behind one sandbox guard.
 - **Note-ownership and append-vs-surface routing** (`routing.py`) as the write discipline in front of the tools.
 - **Persona and system-prompt design** (`persona/`) carrying voice, modes, time anchoring, and discretion rules.
-- **A throwaway demo vault** (`demo_vault/`) of fictional content, plus a standard-library self-test (`test_flow.py`).
+- **A throwaway demo vault** (`demo_vault/`) of fictional content, plus a standard-library self-test (`test_flow.py`) that GitHub Actions runs on every push.
 
 External (not included here):
 

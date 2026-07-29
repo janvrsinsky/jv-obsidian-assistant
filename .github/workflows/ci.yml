@@ -1,0 +1,30 @@
+name: self-test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  self-test:
+    name: self-test, Python ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # Nothing is installed on purpose. test_flow.py verifies the three claims
+      # the README makes against a throwaway copy of the demo vault, on the
+      # standard library alone.
+      - name: Run the self-test
+        run: python test_flow.py
