@@ -64,7 +64,7 @@ The same pattern (persona, typed MCP tool layer, routing boundary in code, dispo
 - `demo_vault/`: the throwaway demo vault of fictional content.
 - `test_flow.py`: standard-library self-test, run by GitHub Actions on every push.
 
-The LLM API behind the assistant and the chat front end are external; neither ships in this repo.
+The Anthropic Claude API behind the assistant and the chat front end are external; neither ships in this repo.
 
 ## Run it
 
@@ -82,7 +82,7 @@ Celestia's guarantee is grounded, auditable state: it reads live vault state bef
 
 ## Status and contact
 
-**PRODUCTION EXTRACT.** A sanitized public cut of a private system in real use. The architecture and method are real; data, names and some components are stand-ins, and the README lists which is which.
+**PRODUCTION EXTRACT.** A sanitized public cut of a private system in real use. The architecture and method are real; data, names and some components are stand-ins, and the README lists which is which. I direct AI coding tools to build it; the architecture, the tool boundary, the routing rules, and the persona spec are mine.
 
 - Portfolio: [github.com/janvrsinsky](https://github.com/janvrsinsky)
 - LinkedIn: [linkedin.com/in/janvrsinsky](https://linkedin.com/in/janvrsinsky)
@@ -93,7 +93,7 @@ Celestia's guarantee is grounded, auditable state: it reads live vault state bef
 ![platform](https://img.shields.io/badge/platform-in%20daily%20production-2ea44f)
 ![interface](https://img.shields.io/badge/interface-MCP%20filesystem-6e40c9)
 ![tools](https://img.shields.io/badge/typed%20MCP%20tools-5-6e40c9)
-![model](https://img.shields.io/badge/model-LLM%20API-d97757)
+![model](https://img.shields.io/badge/model-Anthropic%20Claude%20API-d97757)
 ![obsidian](https://img.shields.io/badge/vault-Obsidian%20Markdown-7c3aed)
 ![persona](https://img.shields.io/badge/persona-engineered-informational)
 ![selfhosted](https://img.shields.io/badge/self--hosted-yes-blue)
